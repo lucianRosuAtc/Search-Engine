@@ -1,11 +1,12 @@
 "use client";
-import React, { useRef, useState, useTransition } from "react";
+import React, { useRef, useState, useTransition, Suspense } from "react";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
 import { Loader2, Search } from "lucide-react";
 import { useRouter, useSearchParams } from "next/navigation";
 
 export default function SearchBar() {
+  <Suspense fallback={<div>Loading...</div>}></Suspense>
   const searchParams = useSearchParams()
   const defaultQuery = searchParams.get("query") || "";
   const inputRef = useRef<HTMLInputElement>(null);
